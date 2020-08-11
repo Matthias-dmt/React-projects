@@ -1,0 +1,3 @@
+[submodule "city-tours/setup-files-react-city-tours-project"]
+	path = city-tours/setup-files-react-city-tours-project
+	url = https://github.com/john-smilga/setup-files-react-city-tours-project.git
