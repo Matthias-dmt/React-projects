@@ -1,45 +1,24 @@
-import React, { Component } from 'react';
-import './TourList.scss';
-import Tour from '../Tour/Tour.jsx';
-import {tourData} from './tourData';
+import React, { useState } from "react";
+import "./TourList.scss";
+import Tour from "../Tour/Tour.jsx";
+import { tourData } from "./tourData";
 
-export default class TourList extends Component {
+function TourList() {
+  const [tours, setTours] = useState(tourData);
 
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            tours: tourData,
-        };
-    }
+  const handleDelete = (id) => {
+    const filterTours = tours.filter((tour) => tour.id !== id);
 
-    handleDelete = id => {
-        const filterTours = this.state.tours.filter( tour => tour.id !== id)
+    setTours(filterTours);
+  };
 
-        this.setState({
-            tours: filterTours
-        });
-    }
-    
-    
-    render() {  
-        return (
-            <section className="tourlist">
-                {this.state.tours.map((tour, i) => {
-                    return (
-                       <Tour 
-                            key={i} 
-                            id={tour.id}
-                            img={tour.img} 
-                            city={tour.city} 
-                            name={tour.name} 
-                            info={tour.info}
-                            handleDelete={this.handleDelete}
-                        /> 
-                    )
-                })}
-                
-            </section>
-        )
-    }
+  return (
+    <section className="tourlist">
+      {tours.map((tour, i) => {
+        return <Tour key={i} {...tour} onDelete={handleDelete} />;
+      })}
+    </section>
+  );
 }
+
+export default TourList;

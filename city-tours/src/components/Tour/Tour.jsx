@@ -1,46 +1,36 @@
-import React, { Component } from 'react';
-import './Tour.scss';
+import React, { useState } from "react";
+import "./Tour.scss";
 
-export default class Tour extends Component {
+function Tour({ id, city, img, name, info, onDelete }) {
+  const [showInfo, setShowInfo] = useState(false);
 
-    constructor(props){
-        super(props);
+  const handleInfo = (e) => {
+    setShowInfo(!showInfo);
+  };
 
-        this.state = {
-            showInfo: false
-        }
-    }
+  const handleDelete = () => onDelete(id);
 
-    handleInfo = () => {
-        this.setState({
-            showInfo: !this.state.showInfo
-        })
-    }
-
-    render() {
-        const {id , key, city, img, name, info} = this.props;
-        const { handleDelete } = this.props;
-        return (
-            <article key={key} className="tour">
-                <figure className="img-container">
-                    <img src={img} alt={name}/>
-                    <span onClick={() => {handleDelete(id)}} className="close-btn">
-                        <i className="fas fa-window-close"></i>
-                    </span>
-                </figure>
-                <section className="tour-info">
-                    <h3>{city}</h3>
-                    <h4>{name}</h4>
-                    <h5>
-                        info{" "}
-                        <span onClick={this.handleInfo}>
-                            <i className="fas fa-caret-square-down"></i>
-                        </span>
-                    </h5>
-                    {this.state.showInfo && <p>{info}</p>}
-                    
-                </section>
-            </article>
-        )
-    }
+  return (
+    <article className="tour">
+      <figure className="img-container">
+        <img src={img} alt={name} />
+        <span onClick={handleDelete} className="close-btn">
+          <i className="fas fa-window-close"></i>
+        </span>
+      </figure>
+      <section className="tour-info">
+        <h3>{city}</h3>
+        <h4>{name}</h4>
+        <h5>
+          info{" "}
+          <span onClick={handleInfo}>
+            <i className="fas fa-caret-square-down"></i>
+          </span>
+        </h5>
+        {showInfo && <p>{info}</p>}
+      </section>
+    </article>
+  );
 }
+
+export default Tour;
