@@ -1,5 +1,22 @@
-.App {
+.app {
   text-align: center;
+}
+
+.date-picker {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.date-picker button {
+  display: inline-block;
+  width: 50%;
+}
+.dates {
+  width: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-column-gap: 1rem;
 }
 
 .App-logo {

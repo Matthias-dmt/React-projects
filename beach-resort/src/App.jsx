@@ -1,17 +1,27 @@
-import React from 'react';
-// import './App.css';
+import React from "react";
+import "./App.css";
 
+import Home from "./pages/Home.jsx";
+import Rooms from "./pages/Rooms.jsx";
+import SingleRoom from "./pages/SingleRoom.jsx";
+import Error from "./pages/Error.jsx";
+import Navbar from "./components/Navbar.jsx";
 
-class App extends React.Component 
-{
+import { Route, Switch } from "react-router-dom";
 
-  render() 
-  {
+class App extends React.Component {
+  render() {
     return (
-      <div>
-        hello from app
-      </div>
-    )
+      <>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/Rooms/" component={Rooms} />
+          <Route exact path="/rooms/:id" component={SingleRoom} />
+          <Route component={Error} />
+        </Switch>
+      </>
+    );
   }
 }
 
