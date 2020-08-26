@@ -1,20 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import './index.css';
-
-import { BrowserRouter as Router } from "react-router-dom";
-
+import "./index.css";
 import App from "./App.jsx";
 import * as serviceWorker from "./serviceWorker";
 
-import { RoomProvider } from "./Context.jsx";
+import {
+  NoteReducer,
+  initialState,
+  NoteProvider,
+} from "./components/reducer/NoteReducer.jsx";
 
 ReactDOM.render(
-  <RoomProvider>
-    <Router>
-      <App />
-    </Router>
-  </RoomProvider>,
+  <NoteProvider>
+    <App />
+  </NoteProvider>,
   document.getElementById("root")
 );
 
