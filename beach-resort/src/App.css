@@ -441,7 +441,7 @@ h6 {
   padding: 5rem 0;
 }
 .roomslist-center {
-  width: 80vw;
+  width: 70vw;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -485,6 +485,8 @@ h6 {
   width: 100%;
   background: transparent;
   font-size: 1rem;
+  border-radius: 2px;
+  padding: 5px 0;
 }
 .size-inputs {
   display: flex;
