@@ -4,7 +4,11 @@ import { RoomContext } from "../Context.jsx";
 
 import Title from "../components/Title.jsx";
 
-export default function RoomFilter() {
+const getUnique = (items, value) => {
+  return [...new Set(items.map((item) => item[value]))];
+};
+
+export default function RoomFilter({ rooms }) {
   const context = useContext(RoomContext);
   const {
     handleChange,
@@ -18,6 +22,22 @@ export default function RoomFilter() {
     breakfast,
     pets,
   } = context;
+
+  // get unique type
+  let types = getUnique(rooms, "type");
+
+  //add all
+  types = ["all", ...types];
+
+  //map to jsx
+  types = types.map((item, i) => {
+    return (
+      <option value={item} key={i}>
+        {item}
+      </option>
+    );
+  });
+
   return (
     <section className="filter-container">
       <Title title="search rooms" />
@@ -26,11 +46,14 @@ export default function RoomFilter() {
         <div className="form-group">
           <label htmlFor="type">room type</label>
           <select
+            onChange={(e) => handleChange(e)}
             name="type"
             id="type"
             value={type}
             className="form-control"
-          ></select>
+          >
+            {types}
+          </select>
         </div>
         {/* end select type */}
       </form>
