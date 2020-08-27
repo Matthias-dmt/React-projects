@@ -15,20 +15,22 @@ export const Home = () => {
       <div className="bg-danger rounded-circle p-5 w-50 mr-auto ml-auto mt-5 mb-5">
         <Title title="QCM Game" />
       </div>
-      <p>
-        For start the QCM click{" "}
-        <Link
-          to="/qcm"
-          className="text-info"
-          onClick={() => {
-            dispatch(startGame());
-          }}
-        >
-          here
-        </Link>{" "}
-        or in the <span className="text-info">qcm</span> menu
-      </p>
-      <p>Good luck {state.avatar} ! </p>
+      <div className="home-border">
+        <p>
+          For start the QCM click{" "}
+          <Link
+            to="/qcm"
+            className="text-info"
+            onClick={() => {
+              dispatch(startGame());
+            }}
+          >
+            here
+          </Link>{" "}
+          or in the <span className="text-info">qcm</span> menu
+        </p>
+        <p>Good luck {state.avatar} ! </p>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,30 @@
 .App {
   text-align: center;
 }
+
+body {
+  background-color: rgb(255, 232, 232);
+}
 Link {
   text-decoration: none;
+}
+
+.home-border {
+  border: 1px solid rgb(163, 163, 163);
+  border-radius: 3px;
+  padding: 1.4rem;
+  padding-top: 2rem;
+  margin-top: 5rem;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+h1,
+nav a {
+  font-family: "Acme", sans-serif;
+  letter-spacing: 0.1rem;
 }
 
 a,
