@@ -16,7 +16,7 @@ const Navbar = ({ ...rest }) => {
   console.log(rest);
   return (
     <div className="bg-dark">
-      <nav className="d-flex w-75 ml-auto mr-auto justify-content-between p-4 text-white">
+      <nav className="d-flex w-75 ml-auto mr-auto mb-4 justify-content-between p-4 text-white">
         <>
           <Link to="/">Home</Link>
         </>
