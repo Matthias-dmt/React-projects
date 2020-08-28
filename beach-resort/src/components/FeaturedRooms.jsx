@@ -10,7 +10,7 @@ export default class FeaturedRooms extends Component {
     const { loading, featuredRooms: rooms } = this.context;
 
     return (
-      <div>
+      <div className="featured-section">
         <Title title="featured-rooms" />
         <div className="featured-rooms-center">
           {loading ? (

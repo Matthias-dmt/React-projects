@@ -274,6 +274,9 @@ h6 {
 /*end of services */
 /* featured rooms */
 
+.featured-section {
+  padding-bottom: 5rem;
+}
 .featured-rooms {
   padding: 5rem 0;
 }
