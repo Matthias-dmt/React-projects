@@ -37,7 +37,7 @@ export const Author = ({ name, id }) => {
             <FaTrash className="fa-trash" />
           </span>
           <span onClick={() => setEdit(true)}>
-            <FaPen />
+            <FaPen className="fa-pen" />
           </span>
         </section>
       )}
@@ -103,6 +103,15 @@ const Wrapper = styled.li`
     color: var(--clr-red-medium);
   }
 
+  .fa-trash,
+  .fa-pen {
+    transition: all 0.3s;
+  }
+
+  .fa-trash:hover,
+  .fa-pen:hover {
+    transform: scale(1.4);
+  }
   .pop-in {
     position: absolute;
     top: 50%;
