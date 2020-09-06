@@ -4,9 +4,11 @@ import { Title, FormAuthor } from "../components";
 
 export const AddAuthor = () => {
   return (
-    <div>
-      <Title title="add new author" />
-      <FormAuthor />
-    </div>
+    <section className="section">
+      <div className="section-center">
+        <Title title="add new author" />
+        <FormAuthor />
+      </div>
+    </section>
   );
 };

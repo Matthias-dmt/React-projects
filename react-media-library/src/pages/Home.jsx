@@ -30,13 +30,18 @@ export const Home = () => {
 };
 
 const FlexWrapper = styled.div`
-  display: flex;
-  justify-contents: space-between;
+  @media screen and (min-width: 992px) {
+    display: flex;
+    justify-contents: space-between;
+  }
 `;
 
 const HomeSection = styled.section`
-  width: 50%;
   padding: 2rem;
   background-color: var(--clr-white);
-  margin: 0 1rem;
+  margin: 2rem 1rem;
+  @media screen and (min-width: 992px) {
+    width: 50%;
+    margin: 0 1rem;
+  }
 `;

@@ -157,23 +157,28 @@ h4 {
 .block {
   display: block;
 }
-
 .flex {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: block;
+}
+
+@media screen and (min-width: 992px) {
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }
 
 /* section */
 .section {
-  padding: 1rem 0;
+  padding: 2rem 0;
   position: relative;
 }
 
 .section-center {
   width: 90vw;
-  margin: 0 auto;
-  max-width: 1370px;
+  margin: 2rem auto;
+  max-width: 1570px;
 }
 @media screen and (min-width: 992px) {
   .section-center {

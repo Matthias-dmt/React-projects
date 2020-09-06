@@ -72,6 +72,18 @@ const Wrapper = styled.li`
     width: 25%;
   }
 
+  .block.flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 992px) {
+    .block.flex {
+      width: 75%;
+    }
+  }
+
   div p span {
     margin-right: 0.5rem;
   }

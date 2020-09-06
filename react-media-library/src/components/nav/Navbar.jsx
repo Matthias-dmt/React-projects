@@ -42,30 +42,52 @@ const WrapperNav = styled.nav`
   background: var(--clr-white);
   margin-bottom: 1rem;
   padding: 1.5rem;
-
+  .navLink {
+    width: 70%;
+  }
   .navLink a {
-    padding: 1rem;
-    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
     letter-spacing: 0.1rem;
+  }
+  @media screen and (min-width: 992px) {
+    .navLink a {
+      padding: 1rem;
+
+      font-size: 1.2rem;
+    }
   }
 `;
 
 const WrapperGrid = styled.section`
   text-align: center;
   display: grid;
-  grid-template-columns: auto auto 100px;
+  grid-template-columns: 100px;
   justify-content: right;
   align-items: center;
   gap: 1.5rem;
+
+  img,
   h4 {
-    margin-bottom: 0;
-    font-weight: 400;
+    display: none;
   }
-  img {
-    width: 35px !important;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
+  @media screen and (min-width: 992px) {
+    grid-template-columns: auto auto 100px;
+
+    img,
+    h4 {
+      display: inline-block;
+    }
+    h4 {
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+    img {
+      width: 35px !important;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
   }
   button {
     background: transparent;

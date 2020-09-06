@@ -18,10 +18,10 @@ export const EditAuthor = () => {
   const [redirect, setRedirect] = useState(false);
 
   return (
-    <>
+    <section className="section section-center">
       {redirect && <Redirect from="/editAuthor" to="/" />}
       <Title title="edit new author" />
       <FormAuthor {...author} id={params.id} />
-    </>
+    </section>
   );
 };

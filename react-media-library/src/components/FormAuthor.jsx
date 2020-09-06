@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { isEmpty } from "lodash";
@@ -153,7 +155,7 @@ export const FormAuthor = ({ ...author }) => {
   };
 
   return (
-    <>
+    <Wrapper>
       {redirect && <Redirect from="/addAuthor" to="/" />}
       <form onSubmit={(e) => e.preventDefault()}>
         {/* start error */}
@@ -207,7 +209,7 @@ export const FormAuthor = ({ ...author }) => {
         )}
         {/* end  book */}
       </form>
-    </>
+    </Wrapper>
   );
 };
 
@@ -215,3 +217,13 @@ FormAuthor.protoTypes = {
   author: PropTypes.object,
   optionalObjectOf: PropTypes.objectOf(PropTypes.string),
 };
+
+const Wrapper = styled.section`
+  form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  input {
+    display: block;
+  }
+`;
