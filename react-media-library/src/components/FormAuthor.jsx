@@ -28,6 +28,8 @@ export const FormAuthor = ({ ...author }) => {
   const [books, setBooks] = useState([]);
   const [redirect, setRedirect] = useState(false);
 
+  const [errors, setErrors] = useState("");
+
   // Input type text for name
   if (currentName !== undefined) initial = currentName;
 
@@ -71,18 +73,24 @@ export const FormAuthor = ({ ...author }) => {
 
   // function for add new book on array books
   const addBooks = () => {
-    const newBooks = [...books, book];
+    if (book !== "") {
+      setErrors("");
+      const newBooks = [...books, book];
 
-    setBooks(newBooks);
+      setBooks(newBooks);
 
-    resetBook();
+      resetBook();
+    } else setErrors("please enter a book name");
   };
 
   const addAuthor = () => {
+    setErrors("");
     // verify input entries
     entriesVerify();
 
-    if (errors === "") {
+    if (name !== "" && bio !== "" && shopName !== "") {
+      setErrors("");
+
       // create random id
       const alea = Math.random().toString();
 
@@ -103,14 +111,12 @@ export const FormAuthor = ({ ...author }) => {
 
       // and redirect to home
       setRedirect(true);
-    }
+    } else setErrors("please fill in all fields");
   };
 
   const editAuthor = () => {
-    // verify input entries
-    entriesVerify();
-
-    if (errors === "") {
+    if (name !== "" && bio !== "" && shopName !== "") {
+      setErrors("");
       // structure the data
       const editAuthor = {
         id: currentId,
@@ -128,24 +134,24 @@ export const FormAuthor = ({ ...author }) => {
 
       // and redirect to home
       setRedirect(true);
-    }
+    } else setErrors("please fill in all fields");
   };
-
-  const [errors, setErrors] = useState("");
 
   const verify = (value) => {
-    if (typeof value !== "string" && value === "") {
-      setErrors("entries need to be a string and null value is not allowed");
-    }
+    if (value === "") {
+      console.log("hey");
+      return setErrors("null value is not allowed");
+    } else return setErrors("");
   };
 
+  // function for verify all input entries
   const entriesVerify = () => {
     verify(name);
     verify(bio);
     verify(shopName);
-    verify(book);
   };
 
+  // function for reset all input values
   const resetValue = () => {
     resetName();
     resetBio();
@@ -159,7 +165,12 @@ export const FormAuthor = ({ ...author }) => {
       {redirect && <Redirect from="/addAuthor" to="/" />}
       <form onSubmit={(e) => e.preventDefault()}>
         {/* start error */}
-        {errors !== "" && <p>{errors}</p>}
+        {errors !== "" && (
+          <div className="errors">
+            {" "}
+            <p>{errors}</p>
+          </div>
+        )}
         {/* end error */}
 
         {/* input text for name */}
@@ -224,6 +235,13 @@ FormAuthor.protoTypes = {
 };
 
 const Wrapper = styled.section`
+  .errors {
+    background-color: var(--clr-red-light);
+    color: var(--clr-white);
+    margin-bottom: 2rem;
+    padding: 1rem 0.5rem;
+    border-radius: var(--radius);
+  }
   form {
     width: 90%;
     margin: 4rem auto 2rem auto;
