@@ -184,10 +184,11 @@ export const FormAuthor = ({ ...author }) => {
         {/* end select */}
 
         {/* Input and list for book */}
-        <div>
+        <div className="overflow">
           <label htmlFor="book">book : </label>
           <input type="text" {...bindBook} value={book} name="book" />
           <button
+            className="btn float-right w-25"
             onClick={() => {
               addBooks();
             }}
@@ -195,7 +196,7 @@ export const FormAuthor = ({ ...author }) => {
             add book
           </button>
           {books.length > 0 && (
-            <ul>
+            <ul className="float-left w-50">
               {books.map((book, i) => {
                 return <li key={i}>{book}</li>;
               })}
@@ -203,9 +204,13 @@ export const FormAuthor = ({ ...author }) => {
           )}
         </div>
         {isEmpty(author) ? (
-          <button onClick={() => addAuthor()}>add new author</button>
+          <button className="btn" onClick={() => addAuthor()}>
+            add new author
+          </button>
         ) : (
-          <button onClick={() => editAuthor()}>edit author</button>
+          <button className="btn" onClick={() => editAuthor()}>
+            edit author
+          </button>
         )}
         {/* end  book */}
       </form>
@@ -220,10 +225,31 @@ FormAuthor.protoTypes = {
 
 const Wrapper = styled.section`
   form {
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 4rem auto 2rem auto;
   }
-  input {
+  label,
+  li {
+    letter-spacing: 0.1rem;
+  }
+
+  ul {
+    padding: 1rem 2rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  select {
     display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    border: 2px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius);
   }
 `;
